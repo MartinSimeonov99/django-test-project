@@ -1,0 +1,28 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'bootstrap/fonts.html' %}
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    {% include 'topbar/topbar.html' %}
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    {% include 'nav/nav.html' %}
+    <!-- Navbar End -->
+
+<form method="post" action="{% url 'profile' pk=user.pk %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update">
+</form>
+
+</body>
+</html>
+{% endblock %}

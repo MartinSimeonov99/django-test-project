@@ -1,0 +1,38 @@
+<div class="container-fluid bg-primary py-3 d-none d-md-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
+                {% if user.is_superuser %}
+                    <a class="text-white px-3" href="{% url 'admin' %}">Admin Page</a>
+                {% elif user.is_staff %}
+                    <a class="text-white px-3" href="{% url 'admin' %}">Staff Page</a>
+                {% endif %}
+                {% if user.is_authenticated %}
+{#                    {% if user.profile_pic %}#}
+                        <img alt="profile_pic" src="{{ post.user.profile_pic.url }}">
+{#                    {% endif %}#}
+                    <a class="text-white px-3" href="{% url 'profile' slug=user.username %}">{{ user }}</a>
+                    <a class="text-white px-3" href="{% url 'sign-out' %}">Log Out</a>
+                {% endif %}
+            </div>
+            <div class="col-md-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-white px-3" href="{{ "https://www.facebook.com/" }}">
+                        <i class="fab fa-facebook-f"></i>
+                    <a class="text-white px-3" href="{{ "https://twitter.com/" }}">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-white px-3" href="{{ "https://www.linkedin.com/" }}">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-white px-3" href="{{ "https://www.instagram.com/" }}">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-white pl-3" href="{{ "https://www.youtube.com/" }}">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'bootstrap/fonts.html' %}
+</head>
+
+<body>
+<!-- Topbar Start -->
+{% include 'topbar/topbar.html' %}
+<!-- Topbar End -->
+
+
+<!-- Navbar Start -->
+{% include 'nav/nav.html' %}
+<!-- Navbar End -->
+
+<!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid page-header" style="margin-bottom: 90px;">
+        <div class="container text-center py-5">
+            <h1 class="text-white display-3 mt-lg-5">Sign In</h1>
+            <div class="d-inline-flex align-items-center text-white">
+                <p class="m-0"><a class="text-white" href="{% url 'index' %}">Home</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+<form method="post" action="{% url 'sign in' %}">
+    <div align="center">
+        {{ form }}
+        <input type="submit" value="Sign In">
+        {% csrf_token %}
+    </div>
+</form>
+
+<!-- Footer Start -->
+{% include 'footer/footer.html' %}
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-secondary px-2 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+{% include 'bootstrap/bootstrap.html' %}
+
+</body>
+
+</html>
